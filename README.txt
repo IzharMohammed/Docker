@@ -33,3 +33,9 @@ docker volume ls
 
 Mount the folder in mongo which actually stores the data to this volume (/data/db is where mongo stores the data in it) :-
 docker run -v volume_database:/data/db -p 27017:27017 mongo
+
+Creation of network :-
+docker network create my_custom_network
+
+To see all the networks :-
+docker network ls
