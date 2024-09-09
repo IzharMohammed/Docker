@@ -39,3 +39,6 @@ docker network create my_custom_network
 
 To see all the networks :-
 docker network ls
+
+To see the contents in the image :- 
+docker exec COTAINER_ID ls 
