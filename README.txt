@@ -42,3 +42,47 @@ docker network ls
 
 To see the contents in the image :- 
 docker exec COTAINER_ID ls 
+
+
+
+
+Project postgres docker :- 
+compose.yaml file :- 
+version : '3.9'
+
+services :
+  db :
+    container_name: db
+    image: postgres:12
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - 5432:5432
+    volumes: 
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata: {}
+
+docker compose build
+
+command to run it :- 
+docker compose up -d db (db is the name of the service , if i add another service then it changes to what the name of the service is)
+
+cmd to go inside the postgres db :- 
+docker exec -it db psql -U postgres (if there is db service in compose file)
+docker exec -it CONTAINERID psql -U postgres
+-U ==> username which allocated in compose.yaml file
+\l
+\dt
+
+
+
+docker exec -it backend(its the name of the container) npx prisma migrate dev --name init
+
+npx prisma studio --> to open prisma studio
+
+npx create-next-app@latest --no-git  
